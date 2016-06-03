@@ -1,13 +1,20 @@
 package action04;
 
 import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public class TestMiniCalc {
-
+	private MiniCalc obj;
+	
+	@Before
+	public void init(){
+		obj = new MiniCalc();
+	}
+	
 	@Test
 	public void test1() {
-		MiniCalc obj = new MiniCalc();
 		int a = 10;
 		int b = 20;
 		int aWait = 200;
@@ -16,9 +23,9 @@ public class TestMiniCalc {
 		if(res != aWait)
 			fail("Not yet implemented");
 	}
+	
 	@Test
 	public void test2() {
-		MiniCalc obj = new MiniCalc();
 		int a = 0;
 		int b = (int)(100*Math.random());
 		int aWait = a * b;
@@ -27,9 +34,9 @@ public class TestMiniCalc {
 		if(res != aWait)
 			fail("Not yet implemented");
 	}
+	
 	@Test
 	public void test3() {
-		MiniCalc obj = new MiniCalc();
 		int a = (int)(100*Math.random());
 		int b = (int)(100*Math.random());
 		Integer aWait = a * b;
