@@ -5,8 +5,11 @@ public abstract class AbstractCalc implements Calcable{
 	private int temp;
 	private char operation = '0';
 	
-	public String getResult(){
+	public String getResult() {
 		return result;
+	}
+	public void setResult(String result) {
+		this.result = result;
 	}
 	public int getTemp() {
 		return temp;
@@ -19,8 +22,5 @@ public abstract class AbstractCalc implements Calcable{
 	}
 	public void setOperation(char operation) {
 		this.operation = operation;
-	}
-	public void setResult(String result) {
-		this.result = result;
 	}
 }
