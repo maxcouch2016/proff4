@@ -1,9 +1,9 @@
 package action04;
 
 public abstract class AbstractCalc implements Calcable{
-	private String result = "";
-	private int temp;
-	private char operation = '0';
+	protected String result = "";
+	protected int temp = 0;
+	protected char operation = '0';
 	
 	public String getResult() {
 		return result;
