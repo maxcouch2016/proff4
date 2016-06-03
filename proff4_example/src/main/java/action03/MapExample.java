@@ -10,7 +10,7 @@ import java.util.TreeSet;
 
 public class MapExample {
 	public static void main(String[] args) {
-		Map<Integer, String> map = new HashMap<>();
+		Map<Integer, String> map = new TreeMap<>();
 		map.put(10, "Product 1");
 		map.put(20, "Product 2");
 		map.put(30, "Product 3");
