@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class ProductShop { 
+public class ProductShop {  
 	Map<Product,String> contructors = new HashMap<Product,String>();
 	public ProductShop(){
 		contructors.put(new Product("Bread White",TypeProduct.Bread, 10),"Firma 3");
