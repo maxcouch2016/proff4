@@ -2,15 +2,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>sergiy_krivchenko</groupId>
-  <artifactId>sergiy_krivchenko</artifactId>
+  <groupId>pavel_putrenkov</groupId>
+  <artifactId>pavel_putrenkov</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>sergiy_krivchenko</name>
+  <name>pavel_putrenkov</name>
   <url>http://maven.apache.org</url>
-
-  <properties>
+<properties>
   <junit.version>4.8.2</junit.version>
   <maven-compiler-plugin.version>3.0</maven-compiler-plugin.version>
   <jdk.version>1.8</jdk.version>
@@ -178,8 +177,6 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.apache.xbean</groupId>
             <artifactId>xbean-spring</artifactId>
@@ -199,9 +196,8 @@
             <artifactId>json</artifactId>
             <version>20141113</version>
         </dependency>
-        
-       </dependencies>
-  <build>
+ </dependencies>
+ <build>
   <plugins>
    <plugin>
     <groupId>org.apache.maven.plugins</groupId>
