@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import action04.Calcable;
- 
+  
 public class TestCalcFirstPart {
 	private Calcable calc;
 	 

@@ -10,7 +10,7 @@ public class JavaFxExample extends Application {
 	public static void main(String[] args) {
 		launch();
 	}
-  
+   
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("MyApp");
@@ -22,6 +22,7 @@ public class JavaFxExample extends Application {
 	public Scene newScene() {
 		HBox box = new HBox();
 		box.getChildren().add(new Button("aa"));
+		box.getChildren().add(new Button("bb"));
 		return new Scene(box, 200, 100);
 		
 	}
