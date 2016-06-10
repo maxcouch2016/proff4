@@ -4,7 +4,7 @@ public abstract class AbstractCalc implements Calcable{
 	protected String result = "";
 	protected int temp = 0; 
 	protected char operation = '0';
-	
+	 
 	public String getResult() {
 		return result;
 	}

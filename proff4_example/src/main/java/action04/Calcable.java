@@ -9,5 +9,5 @@ public interface Calcable {
 	public default void printResult(){
 		System.out.println(getResult());
 	}
-	
+	 
 }
