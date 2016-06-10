@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 
 @MyAnnotation
 public class ReflectionApi {
-	
+	 
 	@MyAnnotation
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
 		ReflectionApi obj = new ReflectionApi();
