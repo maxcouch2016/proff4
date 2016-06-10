@@ -1,9 +1,9 @@
 package action03;
 
-public enum MyEnum {
+public enum MyEnum { 
 	oNE("один"), tWO("два"), fREE("три");
 	String name;
-	MyEnum(String n){ 
+	MyEnum(String n){  
 		name = n;
 	}
 	public String toString(){

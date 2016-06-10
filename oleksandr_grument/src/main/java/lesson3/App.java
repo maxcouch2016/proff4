@@ -1,4 +1,4 @@
-package action03;
+package lesson3;
 
 /**
  * Hello world!

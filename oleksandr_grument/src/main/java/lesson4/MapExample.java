@@ -1,4 +1,4 @@
-package action03;
+package lesson4;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -7,8 +7,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
- 
-public class MapExample { 
+
+public class MapExample {
 	public static void main(String[] args) {
 		Map<Integer, String> map = new HashMap<>();
 		map.put(10, "Product 1");

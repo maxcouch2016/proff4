@@ -1,15 +1,19 @@
-package action03;
+package lesson4;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
-public class ProductShop {   
+public class ProductShop {
 	Map<Product,String> contructors = new HashMap<Product,String>();
 	public ProductShop(){
 		contructors.put(new Product("Bread White",TypeProduct.Bread, 10),"Firma 3");
@@ -33,6 +37,10 @@ public class ProductShop {
 		contructors.put(new Product("Yogurt for Java Developers",TypeProduct.Yogurt, 20),"Firma 2");
 		
 	}
+	
+	
+	
+	
 	public static void main(String[] args) {
 		ProductShop shop = new ProductShop();
 		shop.printContructor();
@@ -40,11 +48,25 @@ public class ProductShop {
 		shop.printNameProductByType(TypeProduct.Yogurt);
 
 	}
-	public void printContructor(){
+	
 
+	
+	public void printContructor(){
+		Map tmp = new TreeMap();
+		
+		tmp = contructors;
+		
+		System.out.println(tmp);
+		
+		
+		
 	}
 	public void printReverseContructor(){
-
+		Map tmp = new TreeMap();
+		
+		tmp = contructors;
+		
+		
 	}
 	public void printNameProductByType(TypeProduct type){
 

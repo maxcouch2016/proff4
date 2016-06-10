@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-
+ 
 public class TestMiniCalc {
 	private MiniCalc obj;
 	
@@ -12,7 +12,7 @@ public class TestMiniCalc {
 	public void init(){
 		obj = new MiniCalc();
 	}
-	
+	 
 	@Test
 	public void test1() {
 		int a = 10;
