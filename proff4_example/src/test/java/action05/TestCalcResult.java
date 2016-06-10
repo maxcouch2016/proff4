@@ -7,7 +7,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import action04.Calcable;
-
+ 
 public class TestCalcResult {
 	private Calcable calc;
 	

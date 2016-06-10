@@ -9,4 +9,4 @@ public class MiniCalc {
 		int res = (a/2) * 2 * b;
 		return new Integer(res);
 	}
-}
+} 

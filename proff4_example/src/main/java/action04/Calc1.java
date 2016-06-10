@@ -6,6 +6,6 @@ public class Calc1 extends AbstractCalc{
 	public void inChar(char p) { 
 		// TODO Auto-generated method stub
 		
-	}
+	} 
 
 }
