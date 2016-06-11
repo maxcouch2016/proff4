@@ -10,9 +10,6 @@ import javafx.scene.control.TextField;
 
 public class Controller1 implements Initializable {
 
-	public Controller1() {
-
-	}
 
 	@FXML
 	private TextField txtDisplay;
@@ -47,7 +44,9 @@ public class Controller1 implements Initializable {
 			try {
 				firstDouble = Double.parseDouble(currentText);
 			} catch (NumberFormatException e) {
+
 				System.out.println("¬ведите число");
+			
 			}
 			txtDisplay.setText("");
 			decimalClick = 0;
@@ -60,6 +59,9 @@ public class Controller1 implements Initializable {
 	private void handlerDigitAction(ActionEvent event) {
 		String digitObject = ((Button) event.getSource()).getText();		
 		String oldText = txtDisplay.getText();
+		 if (oldText.equals("0")){oldText="";}
+		 else{
+			}
 		String newText = oldText + digitObject;
 		txtDisplay.setText(newText);
 	
