@@ -1,4 +1,4 @@
-package calc2;
+package myCalc;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -52,7 +52,7 @@ public class Controller1 implements Initializable {
 				firstDouble = Double.parseDouble(currentText);
 			//	System.out.println("firstDouble");
 			} catch (NumberFormatException e) {
-				System.out.println("Введите числоdfsdf");
+				System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅdfsdf");
 			}
 
 			txtDisplay.setText("");
@@ -92,7 +92,7 @@ public class Controller1 implements Initializable {
 		try {
 			secondDouble = Double.parseDouble(secondText);
 		} catch (NumberFormatException e) {
-			System.out.println("Введите действие");
+			System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
 		}
 		try {
 			switch (generalOperationObject) {
@@ -112,7 +112,7 @@ public class Controller1 implements Initializable {
 			default:
 			}
 		} catch (NullPointerException e) {
-			System.out.println("Введите число");
+			System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
 		}
 		String format;
 	//	format = String.format("%.6f",result);

@@ -1,4 +1,4 @@
-package calc2;
+package myCalc;
 
 import java.io.IOException;
 
@@ -22,8 +22,8 @@ public class Main1 extends Application {
 		primaryStage.setMinWidth(268);
 		primaryStage.setMinHeight(345);
 		primaryStage.setTitle("Mystic Calc");
-		// Устанавливаем иконку приложения.
-		primaryStage.getIcons().add(new Image("calc2/calculator.png"));
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
+		primaryStage.getIcons().add(new Image("myCalc/calculator.png"));
 	}
 
 	public static void main(String[] args) {
