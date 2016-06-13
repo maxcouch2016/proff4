@@ -1,4 +1,4 @@
-package calc1;
+package calc2;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,15 +26,20 @@ public class Controller1 implements Initializable {
 	private void handlerGeneralAction(ActionEvent event) {
 		
 		generalOperationObject = ((Button) event.getSource()).getText();
-			switch (generalOperationObject) {
+		
+		
+		switch (generalOperationObject) {
 		case "AC":
-			txtDisplay.setText("");
+			txtDisplay.setText("0");
+			firstDouble=0;
+			secondDouble=0;
 			decimalClick = 0;
 			break;
 		case "+/-":
 			double plusMinus = Double.parseDouble(String.valueOf(txtDisplay.getText()));
 			plusMinus = plusMinus * (-1);
 			txtDisplay.setText(String.valueOf(plusMinus));
+			
 			break;
 		case "+":
 		case "-":
@@ -43,8 +48,9 @@ public class Controller1 implements Initializable {
 		case "%":
 			String currentText = txtDisplay.getText();
 			try {
-				System.out.println(currentText);
+			//	System.out.println(currentText);
 				firstDouble = Double.parseDouble(currentText);
+			//	System.out.println("firstDouble");
 			} catch (NumberFormatException e) {
 				System.out.println("¬ведите числоdfsdf");
 			}
@@ -61,7 +67,7 @@ public class Controller1 implements Initializable {
 		String digitObject = ((Button) event.getSource()).getText();
 		String oldText = txtDisplay.getText();
 		if (txtDisplay.getText().equals("0")) {
-			oldText ="";
+		oldText ="";
 		}
 		String newText = oldText + digitObject;
 		txtDisplay.setText(newText);
@@ -107,13 +113,23 @@ public class Controller1 implements Initializable {
 			}
 		} catch (NullPointerException e) {
 			System.out.println("¬ведите число");
-			result=+firstDouble;
-			
 		}
-		String format = String.format("%.1f", result);		
+		String format;
+	//	format = String.format("%.6f",result);
+		format=toCalculatorString(result);
 		txtDisplay.setText(format);
 	}
+	
+	
 
 
+	private static String removeDecimalTrailingZeroes(String s) {
+		return s.indexOf(".") < 0 ? s : s.replaceAll("0*$", "").replaceAll("\\.$", "");
+	}
+
+	private static String toCalculatorString(double input) {
+		return input == (int) input ? Integer.toString((int) input)
+				: removeDecimalTrailingZeroes(String.format("%.6f", input));
+	}
 
 }
