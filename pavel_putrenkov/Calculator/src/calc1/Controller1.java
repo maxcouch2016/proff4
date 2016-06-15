@@ -10,16 +10,13 @@ import javafx.scene.control.TextField;
 
 public class Controller1 implements Initializable {
 
-	public Controller1() {
-
-	}
-
 	@FXML
 	private TextField txtDisplay;
 	private int decimalClick = 0;
 	private String generalOperationObject;
 	private double firstDouble;
-
+	private double secondDouble;
+	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 
@@ -27,8 +24,9 @@ public class Controller1 implements Initializable {
 
 	@FXML
 	private void handlerGeneralAction(ActionEvent event) {
+		
 		generalOperationObject = ((Button) event.getSource()).getText();
-		switch (generalOperationObject) {
+			switch (generalOperationObject) {
 		case "AC":
 			txtDisplay.setText("");
 			decimalClick = 0;
@@ -45,10 +43,12 @@ public class Controller1 implements Initializable {
 		case "%":
 			String currentText = txtDisplay.getText();
 			try {
+				System.out.println(currentText);
 				firstDouble = Double.parseDouble(currentText);
 			} catch (NumberFormatException e) {
-				System.out.println("¬ведите число");
+				System.out.println("¬ведите числоdfsdf");
 			}
+
 			txtDisplay.setText("");
 			decimalClick = 0;
 			break;
@@ -58,22 +58,21 @@ public class Controller1 implements Initializable {
 
 	@FXML
 	private void handlerDigitAction(ActionEvent event) {
-		String digitObject = ((Button) event.getSource()).getText();		
+		String digitObject = ((Button) event.getSource()).getText();
 		String oldText = txtDisplay.getText();
+		if (txtDisplay.getText().equals("0")) {
+			oldText ="";
+		}
 		String newText = oldText + digitObject;
 		txtDisplay.setText(newText);
-	
-		
 	}
 
 	@FXML
 	private void handlerDecimalAction(ActionEvent event) {
 		if (decimalClick == 0) {
 			String decimalObject = ((Button) event.getSource()).getText();
-			String oldText = txtDisplay.getText();
-		//	System.out.println(oldText);
+			String oldText = txtDisplay.getText();	
 			String newText = oldText + decimalObject;
-		//	System.out.println(newText);
 			txtDisplay.setText(newText);
 			decimalClick = 1;
 		}
@@ -81,7 +80,7 @@ public class Controller1 implements Initializable {
 
 	@FXML
 	private void handlerEqualAction(ActionEvent event) {
-		double secondDouble = 0;
+		secondDouble = 0;
 		double result = 0;
 		String secondText = txtDisplay.getText();
 		try {
@@ -92,6 +91,7 @@ public class Controller1 implements Initializable {
 		try {
 			switch (generalOperationObject) {
 			case "+":
+				
 				result = firstDouble + secondDouble;
 				break;
 			case "-":
@@ -107,10 +107,13 @@ public class Controller1 implements Initializable {
 			}
 		} catch (NullPointerException e) {
 			System.out.println("¬ведите число");
+			result=+firstDouble;
+			
 		}
-		String format = String.format("%.1f", result);
+		String format = String.format("%.1f", result);		
 		txtDisplay.setText(format);
-
 	}
+
+
 
 }
