@@ -11,7 +11,7 @@
 .background {
     -fx-background-color: #1d1d1d;
 }
-.button:pressed{
+ .button:pressed{
     -fx-background-color: rgba(180.0,180.0,180.0,0.7);
 }
 

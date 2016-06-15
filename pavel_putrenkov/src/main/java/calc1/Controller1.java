@@ -59,6 +59,7 @@ public class Controller1 implements Initializable {
 	@FXML
 	private void handlerDigitAction(ActionEvent event) {
 		String digitObject = ((Button) event.getSource()).getText();		
+		if (digitObject.equals("0"))txtDisplay.setText("");
 		String oldText = txtDisplay.getText();
 		if (txtDisplay.getText().equals("0")){
 			txtDisplay.setText("");
@@ -74,9 +75,7 @@ public class Controller1 implements Initializable {
 		if (decimalClick == 0) {
 			String decimalObject = ((Button) event.getSource()).getText();
 			String oldText = txtDisplay.getText();
-		//	System.out.println(oldText);
 			String newText = oldText + decimalObject;
-		//	System.out.println(newText);
 			txtDisplay.setText(newText);
 			decimalClick = 1;
 		}

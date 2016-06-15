@@ -1,7 +1,7 @@
 //package action05;
 //
 //public class CalcProff4Example extends AbstractCalc{
-//  
+//   
 //	@Override
 //	public void inChar(char p) {
 //		if(p=='='){
@@ -34,4 +34,5 @@
 //		}
 //		return res;
 //	}
+//	
 //}
