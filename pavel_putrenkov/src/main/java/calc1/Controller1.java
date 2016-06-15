@@ -47,7 +47,7 @@ public class Controller1 implements Initializable {
 			try {
 				firstDouble = Double.parseDouble(currentText);
 			} catch (NumberFormatException e) {
-				System.out.println("Введите число");
+				System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
 			}
 			txtDisplay.setText("");
 			decimalClick = 0;
@@ -60,6 +60,9 @@ public class Controller1 implements Initializable {
 	private void handlerDigitAction(ActionEvent event) {
 		String digitObject = ((Button) event.getSource()).getText();		
 		String oldText = txtDisplay.getText();
+		if (txtDisplay.getText().equals("0")){
+			txtDisplay.setText("");
+		}
 		String newText = oldText + digitObject;
 		txtDisplay.setText(newText);
 	
@@ -87,7 +90,7 @@ public class Controller1 implements Initializable {
 		try {
 			secondDouble = Double.parseDouble(secondText);
 		} catch (NumberFormatException e) {
-			System.out.println("Введите действие");
+			System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
 		}
 		try {
 			switch (generalOperationObject) {
@@ -106,7 +109,7 @@ public class Controller1 implements Initializable {
 			default:
 			}
 		} catch (NullPointerException e) {
-			System.out.println("Введите число");
+			System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
 		}
 		String format = String.format("%.1f", result);
 		txtDisplay.setText(format);
