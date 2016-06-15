@@ -13,7 +13,7 @@ public class Main1 extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("ui2.fxml"));
-		Scene scene = new Scene(root,252,310);
+		Scene scene = new Scene(root, 252, 310);
 		scene.getStylesheets().add(getClass().getResource("application1.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -22,7 +22,7 @@ public class Main1 extends Application {
 		primaryStage.setMinWidth(268);
 		primaryStage.setMinHeight(345);
 		primaryStage.setTitle("Mystic Calc");
-		// ������������� ������ ����������.
+		// IconAdd.
 		primaryStage.getIcons().add(new Image("myCalc/calculator.png"));
 	}
 
