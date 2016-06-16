@@ -39,23 +39,23 @@ public class Controller1 implements Initializable {
 		String oldText = txtDisplay.getText();
 		if (txtDisplay.getText().equals("0")) {
 			oldText = "";
-		}
+			}
+	
 		String newText = oldText + digitObject;
 		if (resultAll != 0) {
 		}
 		if (ferSec == false) {
-
+		
 			firstDoubleCalc = +Double.valueOf(removeDecimalTrailingZeroes(newText));
 
 			System.out.println("firstDoubleCalc =" + firstDoubleCalc);
 		} else if (ferSec == true) {
-
 			secondDoubleCalc = +Double.parseDouble(removeDecimalTrailingZeroes(newText));
 
 			System.out.println("secondDoubleCalc =" + secondDoubleCalc);
 		}
 		txtDisplay.setText(newText);
-
+		
 	}
 
 	@FXML
@@ -207,8 +207,10 @@ public class Controller1 implements Initializable {
 	private void handlerBasicAction(ActionEvent event) {
 		sizeTextFilt();
 		System.out.println(txtDisplay.getLength());
+		
 		if (String.valueOf(txtDisplay.getText()).equals(0)) {
 			txtDisplay.setText("");
+			
 		}
 		if (ferSec = true & resultAll == 0 ^ generalOperationObject != "") {
 			System.out.println(String.valueOf(txtDisplay.getText()));
