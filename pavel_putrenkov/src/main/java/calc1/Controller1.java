@@ -61,6 +61,9 @@ public class Controller1 implements Initializable {
 		String digitObject = ((Button) event.getSource()).getText();		
 		if (digitObject.equals("0"))txtDisplay.setText("");
 		String oldText = txtDisplay.getText();
+		if (txtDisplay.getText().equals("0")){
+			txtDisplay.setText("");
+		}
 		String newText = oldText + digitObject;
 		txtDisplay.setText(newText);
 	
