@@ -17,16 +17,44 @@ public class Controller1 implements Initializable {
 	@FXML
 	private TextField txtDisplay2;
 	private int decimalClick = 0;
-	private String generalOperationObject;
+	private String generalOperationObject = "";
 	private double firstDoubleCalc;
 	private double secondDoubleCalc;
 	private double firstDoubleDisp;
 	private double secondDoubleDisp;
 	private boolean ferSec = false;
-	private double resultAll;
+	private double resultAll = 0;
+	private byte i = 0;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+
+	}
+
+	@FXML
+	private void handlerDigitAction(ActionEvent event) {
+		sizeTextFilt();
+		System.out.println(txtDisplay.getLength());
+		String digitObject = ((Button) event.getSource()).getText();
+		String oldText = txtDisplay.getText();
+		if (txtDisplay.getText().equals("0")) {
+			oldText = "";
+		}
+		String newText = oldText + digitObject;
+		if (resultAll != 0) {
+		}
+		if (ferSec == false) {
+
+			firstDoubleCalc = +Double.valueOf(removeDecimalTrailingZeroes(newText));
+
+			System.out.println("firstDoubleCalc =" + firstDoubleCalc);
+		} else if (ferSec == true) {
+
+			secondDoubleCalc = +Double.parseDouble(removeDecimalTrailingZeroes(newText));
+
+			System.out.println("secondDoubleCalc =" + secondDoubleCalc);
+		}
+		txtDisplay.setText(newText);
 
 	}
 
@@ -44,50 +72,60 @@ public class Controller1 implements Initializable {
 			firstDoubleCalc = 0;
 			secondDoubleCalc = 0;
 			decimalClick = 0;
+			generalOperationObject = "";
+			ferSec = false;
+			resultAll = 0;
+			if (txtDisplay.getLength() < 8) {
+				sizeTextFilt();
+			}
 			break;
 		case "+":
 		case "-":
 		case "*":
 		case "/":
 		case "%":
-
-			String currentText = txtDisplay.getText();
-			System.out.println(currentText);
-			txtDisplay2.setText(generalOperationObject);
-			if (generalOperationObject != "+/-") {
-			//	System.out.println(currentText);
-				if (ferSec == false ) {
-					// firstDoubleCalc =
-					// Double.parseDouble(removeDecimalTrailingZeroes(currentText));
-					
-					firstDoubleDisp = firstDoubleCalc;
-					System.out.println("firstDoubleDisp ="+firstDoubleDisp);
-					txtDisplay.setText("");
-					txtDisplay2.setText(dblFormatNum(firstDoubleDisp) + generalOperationObject);
-					decimalClick = 0;
-					System.out.println("firstDoubleDisp =" + firstDoubleDisp );
-					ferSec = true;
-				} else if (resultAll!= 0 ) {
-					//secondDoubleCalc = Double.parseDouble(removeDecimalTrailingZeroes(currentText));
-					System.out.println(secondDoubleCalc);
-					secondDoubleDisp = secondDoubleCalc;
-					System.out.println("secondDoubleDisp ="+secondDoubleDisp);
-					txtDisplay.setText("");
-					txtDisplay2.setText(dblFormatNum(secondDoubleDisp) + generalOperationObject);
-					decimalClick = 0;
-					ferSec = false;
-				} else {
-					//resultAll = Double.parseDouble(removeDecimalTrailingZeroes(currentText));
-					System.out.println(resultAll);
-					System.out.println("secondDoubleDisp ="+resultAll);
-					secondDoubleDisp = resultAll;
-					txtDisplay.setText("");
-					txtDisplay2.setText(dblFormatNum(resultAll) + generalOperationObject);
-					decimalClick = 0;
-					ferSec = false;
+			if (i == 0) {
+				if (resultAll != 0) {
+					txtDisplay2.setText(generalOperationObject);
 				}
-				ferSec = true;
-				break;
+				{
+					txtDisplay2.setText(txtDisplay.getText());
+				}
+				if (generalOperationObject != "+/-") {
+					if (ferSec = true & resultAll == 0) {
+						firstDoubleDisp = firstDoubleCalc;
+						System.out.println("firstDoubleDisp =" + firstDoubleDisp);
+						txtDisplay.setText("");
+						txtDisplay2.setText(dblFormatNum(firstDoubleDisp) + generalOperationObject);
+						decimalClick = 0;
+						System.out.println("firstDoubleDisp =" + firstDoubleDisp);
+						ferSec = true;
+						System.out.println("1");
+
+					} else if (ferSec = false & resultAll == 0) {
+
+						System.out.println(secondDoubleCalc);
+						secondDoubleDisp = secondDoubleCalc;
+						System.out.println("secondDoubleDisp =" + secondDoubleDisp);
+						txtDisplay.setText("");
+						txtDisplay2.setText(dblFormatNum(secondDoubleDisp) + generalOperationObject);
+						decimalClick = 0;
+						ferSec = false;
+						System.out.println("2");
+					} else if (resultAll != 0) {
+						System.out.println(resultAll);
+						System.out.println("secondDoubleDisp =" + resultAll);
+						firstDoubleCalc = resultAll;
+						txtDisplay.setText("");
+						txtDisplay2.setText(txtDisplay2.getText() + generalOperationObject);
+						resultAll = 0;
+						decimalClick = 0;
+						ferSec = true;
+						System.out.println("3");
+					}
+					i = 1;
+					break;
+				}
 			}
 		default:
 		}
@@ -95,27 +133,53 @@ public class Controller1 implements Initializable {
 	}
 
 	@FXML
-	private void handlerDigitAction(ActionEvent event) {
+	private void handlerEqualAction(ActionEvent event) {
+		if (String.valueOf(txtDisplay.getText()) == "Ошибка") {
+			return;
+		}
 		sizeTextFilt();
-		System.out.println(txtDisplay.getLength());
-		String digitObject = ((Button) event.getSource()).getText();
-		String oldText = txtDisplay.getText();
-		if (txtDisplay.getText().equals("0")) {
-			oldText = "";
+		secondDoubleDisp = 0;
+		resultAll = 0;
+
+		double result = 0;
+
+		try {
+			switch (generalOperationObject) {
+
+			case "+":
+				result = firstDoubleCalc + secondDoubleCalc;
+				resultAll = result;
+				break;
+			case "-":
+				result = firstDoubleCalc - secondDoubleCalc;
+				resultAll = result;
+				break;
+			case "*":
+				result = firstDoubleCalc * secondDoubleCalc;
+				resultAll = result;
+				break;
+			case "/":
+				result = firstDoubleCalc / secondDoubleCalc;
+				resultAll = result;
+				break;
+			default:
+			}
+		} catch (NullPointerException e) {
+			e.printStackTrace();
 		}
-		String newText = oldText + digitObject;
-		if (ferSec == false) {
-			firstDoubleCalc = +Double.parseDouble(newText);
-			System.out.println("firstDoubleCalc ="+firstDoubleCalc);
-		} else if (ferSec == true) {
-			secondDoubleCalc = +Double.parseDouble(newText);
-			System.out.println("firstDoubleCalc ="+firstDoubleCalc);
-		} else if (resultAll != 0) {
-			resultAll = +Double.parseDouble(newText);
-			System.out.println("resultAll ="+resultAll);
+		System.out.println(generalOperationObject);
+		String format = dblFormatNum(result);
+		txtDisplay.setText(format);
+		System.out.println(format + "format");
+		txtDisplay2.setText("(" + dblFormatNum(firstDoubleCalc) + ")" + generalOperationObject + "("
+				+ dblFormatNum(secondDoubleCalc) + ")" + " = ");
+		if (txtDisplay.getLength() > 8) {
+			sizeTextFilt();
 		}
-		txtDisplay.setText(newText);
-		
+		firstDoubleCalc = resultAll;
+		decimalClick = 1;
+		ferSec = false;
+		i = 0;
 	}
 
 	@FXML
@@ -139,96 +203,80 @@ public class Controller1 implements Initializable {
 	}
 
 	@FXML
-	private void handlerEqualAction(ActionEvent event) {
-		sizeTextFilt();
-		secondDoubleDisp = 0;
-		resultAll = 0;
-		// secondDoubleCalc = 0;
-		double result = 0;
-		String secondText = txtDisplay.getText();
-		secondText = removeDecimalTrailingZeroes(secondText);
 
-		try {
-			// secondDoubleCalc = Double.parseDouble(secondText);
-
-		} catch (NumberFormatException e) {
-			System.out.println("addNumber" + " чет не");
-		}
-		try {
-			switch (generalOperationObject) {
-			case "+":
-				result = firstDoubleCalc + secondDoubleCalc;
-				resultAll = result;
-				break;
-			case "-":
-				result = firstDoubleCalc - secondDoubleCalc;
-				resultAll = result;
-				break;
-			case "*":
-				result = firstDoubleCalc * secondDoubleCalc;
-				resultAll = result;
-				break;
-			case "/":
-				result = firstDoubleCalc / secondDoubleCalc;
-				resultAll = result;
-				break;
-			default:
-			}
-		} catch (NullPointerException e) {
-			System.out.println("null");
-		}
-		String format;
-		// format = String.format("%.6f",result);
-		// format = toCalculatorString(result);
-
-		format = dblFormatNum(result);
-
-		txtDisplay.setText(format);
-		System.out.println(format);
-		txtDisplay2.setText("(" + dblFormatNum(firstDoubleCalc).replaceAll(" ", "") + ")" + generalOperationObject + "("
-				+ dblFormatNum(secondDoubleCalc).replaceAll(" ", "") + ")" + " = ");
-
-		decimalClick = 1;
-		ferSec = true;
-		// secondDoubleCalc=0;
-	}
-
-	// private static String removeDecimalTrailingZeroes(String s) {
-	// return s.indexOf(".") < 0 ? s : s.replaceAll("0*$",
-	// "").replaceAll("\\.$", "");
-	// }
-	private static String removeDecimalTrailingZeroes(String s) {
-		return s.indexOf(",") < 0 ? s : s.replaceAll(",", ".");
-	}
-	//
-	// private static String toCalculatorString(double input) {
-	// return input == (int) input ? Integer.toString((int) input)
-	// : removeDecimalTrailingZeroes(String.format("%.6f", input));
-	// }
-
-	@FXML
 	private void handlerBasicAction(ActionEvent event) {
+		sizeTextFilt();
 		System.out.println(txtDisplay.getLength());
-		txtDisplay.setText("-");
-		if (String.valueOf(txtDisplay.getText()) == "-") {
-			double plusMinus = Double.parseDouble(String.valueOf(txtDisplay.getText()));
-			System.out.println(plusMinus);
-			plusMinus = (-1) * plusMinus;
-			txtDisplay.setText(strFormatNum(plusMinus));
-			txtDisplay2.setText(strFormatNum(plusMinus));
+		if (String.valueOf(txtDisplay.getText()).equals(0)) {
+			txtDisplay.setText("");
 		}
+		if (ferSec = true & resultAll == 0 ^ generalOperationObject != "") {
+			System.out.println(String.valueOf(txtDisplay.getText()));
+			firstDoubleCalc = (-1) * firstDoubleCalc;
+			firstDoubleDisp = firstDoubleCalc;
+			txtDisplay.setText(dblFormatNum(firstDoubleDisp));
+		} else if (ferSec = false & resultAll == 0 | generalOperationObject != "") {
+			secondDoubleCalc = (-1) * secondDoubleCalc;
+			secondDoubleDisp = secondDoubleCalc;
+			txtDisplay.setText(dblFormatNum(secondDoubleDisp));
+		} else if (resultAll != 0) {
+			resultAll = (-1) * resultAll;
+			txtDisplay.setText(dblFormatNum(resultAll));
+		} else {
+			resultAll = 0;
+		}
+		
 	}
 
 	@FXML
 	private void handlerSqrtAction(ActionEvent event) {
-		if (txtDisplay2.getText() != "") {
+		double rootP = 0;
+		if (!txtDisplay.getText().isEmpty() & !txtDisplay2.getText().isEmpty()) {
 			txtDisplay2.setText("√");
-			double rootP = Double.parseDouble(String.valueOf(txtDisplay.getText()));
+			if (resultAll != 0) {
+				rootP = resultAll;
+			} else if (ferSec = false & resultAll == 0 | generalOperationObject != "") {
+				rootP = secondDoubleCalc;
+			} else if (ferSec = true & resultAll == 0 ^ generalOperationObject != "") {
+				rootP = firstDoubleCalc;
+			}
+
+			if (rootP < 0) {
+				txtDisplay.setText("Ошибка");
+				firstDoubleDisp = 0;
+				secondDoubleDisp = 0;
+				firstDoubleCalc = 0;
+				secondDoubleCalc = 0;
+				decimalClick = 0;
+				generalOperationObject = "";
+				ferSec = false;
+				resultAll = 0;
+				if (txtDisplay.getLength() < 8) {
+					sizeTextFilt();
+				}
+				return;
+			}
 			double rootA = Math.sqrt(rootP);
 			resultAll = rootA;
 			txtDisplay.setText(strFormatNum(rootA));
 			txtDisplay2.setText("√" + strFormatNum(rootP));
+
+			if (firstDoubleCalc != 0) {
+				secondDoubleCalc = rootA;
+				if (firstDoubleDisp != 0) {
+					txtDisplay2.setText(
+							strFormatNum(firstDoubleDisp) + generalOperationObject + "√" + strFormatNum(rootP));
+				} else {
+					txtDisplay2.setText("√" + strFormatNum(rootP));
+				}
+			}
+		} else {
+			System.out.println("Введите число");
 		}
+	}
+
+	private static String removeDecimalTrailingZeroes(String s) {
+		return s.indexOf(",") < 0 ? s : s.replaceAll(",", ".");
 	}
 
 	private String dblFormatNum(double numA) {
@@ -240,12 +288,13 @@ public class Controller1 implements Initializable {
 	}
 
 	private void sizeTextFilt() {
-		if (txtDisplay.getLength() > 9) {
-			txtDisplay.setFont(Font.font("Courier", 20));
-		}
 
-		else if (txtDisplay.getLength() < 9) {
-			txtDisplay.setFont(Font.font("Courier", 42));
+		if (txtDisplay.getLength() > 9 & txtDisplay.getLength() < 21) {
+			txtDisplay.setFont(Font.font("Courier", 20));
+		} else if (txtDisplay.getLength() < 9) {
+			txtDisplay.setFont(Font.font("Courier", 45));
+		} else if (txtDisplay.getLength() > 21) {
+			txtDisplay.setFont(Font.font("Courier", 15));
 		}
 	}
 
