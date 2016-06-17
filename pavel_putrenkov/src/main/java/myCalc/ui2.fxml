@@ -12,15 +12,7 @@
 
 <VBox maxHeight="400.0" maxWidth="327.0" minHeight="100.0" minWidth="252.0" prefHeight="348.0" prefWidth="253.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myCalc.Controller1">
 	<children>
-		<TextField fx:id="txtDisplay2" alignment="BOTTOM_RIGHT" cacheShape="false" centerShape="false" editable="false" focusTraversable="false" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="35.0" prefWidth="253.0" scaleShape="false" text="0">
-			<font>
-				<Font name="Arial Unicode MS" size="14.0" />
-			</font>
-			<cursor>
-				<Cursor fx:constant="DEFAULT" />
-			</cursor>
-		</TextField>
-		<TextField fx:id="txtDisplay" alignment="CENTER_RIGHT" cacheShape="false" centerShape="false" editable="false" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" pickOnBounds="false" scaleShape="false" text="0">
+		<TextField fx:id="txtDisplay" alignment="CENTER_RIGHT" cacheShape="false" centerShape="false" editable="false" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="41.0" prefWidth="253.0" scaleShape="false" snapToPixel="false" text="0" VBox.vgrow="ALWAYS">
 			<font>
 				<Font name="Arial Unicode MS" size="44.0" />
 			</font>
@@ -34,10 +26,18 @@
 				<Cursor fx:constant="DEFAULT" />
 			</cursor>
 		</TextField>
-		<GridPane cache="true" cacheHint="QUALITY" focusTraversable="true" maxHeight="400.0" maxWidth="252.0" minHeight="100.0" minWidth="252.0" prefHeight="228.0" prefWidth="252.0" stylesheets="@application1.css">
+		<TextField fx:id="txtDisplay2" alignment="BOTTOM_RIGHT" cacheShape="false" centerShape="false" editable="false" focusTraversable="false" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="35.0" prefWidth="253.0" scaleShape="false" text="0">
+			<font>
+				<Font name="Arial Unicode MS" size="14.0" />
+			</font>
+			<cursor>
+				<Cursor fx:constant="DEFAULT" />
+			</cursor>
+		</TextField>
+		<GridPane cache="true" cacheHint="QUALITY" focusTraversable="true" maxHeight="400.0" maxWidth="252.0" minHeight="100.0" minWidth="252.0" prefHeight="228.0" prefWidth="252.0" stylesheets="@application1.css" VBox.vgrow="ALWAYS">
 			<columnConstraints>
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
 			</columnConstraints>
