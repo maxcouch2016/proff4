@@ -9,6 +9,8 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
  
 public class SocketsExample {
 	public static void main(String[] args) {
@@ -21,6 +23,7 @@ public class SocketsExample {
 class Server extends Thread {
 	private ServerSocket server;
 	private final int port;
+	private List<Socket> sockets = new ArrayList<>();
 
 	public Server(int p) {
 		port = p;
@@ -33,6 +36,7 @@ class Server extends Thread {
 			System.out.println("Server is started!");
 			while (true) {
 				Socket socket = server.accept();
+				sockets.add(socket);
 				new ServerForClients(socket).start();
 			}
 
@@ -69,7 +73,7 @@ class Client {
 			OutputStream os = socket.getOutputStream();
 			DataOutputStream dos = new DataOutputStream(os);
 
-			while(true)dos.writeUTF("Hello server");
+			while(true) dos.writeUTF("Hello server");
 			//String str = dis.readUTF();
 			//System.out.println("Client receive from srever:" + str);
 
