@@ -83,6 +83,7 @@ class Client {
 	}
 }
 
+
 class ServerForClients extends Thread {
 	private Socket socket;
 
