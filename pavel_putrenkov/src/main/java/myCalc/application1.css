@@ -1,0 +1,47 @@
+.button {
+
+    -fx-background-color:
+        #61a2b1,
+        linear-gradient(#38424b 0%, #1f2429 20%, #C9E5F4 100%),
+        linear-gradient( #104C78, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,2,3,0;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Courier";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 17px;
+    -fx-padding: 10 20 10 20;
+	-fx-border-color: #104C78;
+
+}
+
+.button:pressed{
+    -fx-background-color: rgba(180.0,180.0,180.0,0.7);
+
+}
+
+ .text-field {
+
+    -fx-background-color: -fx-control-inner-background;
+    -fx-background-insets: 0;
+    -fx-padding: 1 2 1 2;
+}
+
+
+.text-field:focused {
+    -fx-focus-color: transparent;
+
+}
+.root {
+
+    -fx-base: #E2E2E2;
+    -fx-background: #104C78;
+    -fx-focus-color: #0093FF;
+    -fx-control-inner-background: #104C78;
+    -fx-inner-border: linear-gradient(to bottom, derive(-fx-color,61.050847457627114%) 0%, derive(-fx-color,52.30508474576271%) 100%);
+    -fx-body-color: linear-gradient( to bottom, derive(-fx-color, 2.6271186440677923%) 0%, derive(-fx-color, 11.966101694915253%) 50%, derive(-fx-color, 23.644067796610173%) 50.5%, derive(-fx-color, 20.508474576271183%) 100%);
+    -fx-outer-border: derive(-fx-color,-76.61016949152543%);
+    -fx-shadow-highlight-color: derive(-fx-background,21.694915254237273%);
+    -fx-text-box-border: derive(-fx-background,-100.0%);
+}
