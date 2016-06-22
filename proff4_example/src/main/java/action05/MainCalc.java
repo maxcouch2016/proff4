@@ -1,5 +1,5 @@
 package action05;
-   
+    
 public class MainCalc {
 	public static void main(String[] args) {
 		CalcProff4Example calc = new CalcProff4Example();

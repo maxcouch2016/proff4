@@ -1,5 +1,5 @@
 package action04;
-
+ 
 public interface Calcable {
 	public static final String ByZero = "Error Divide By Zero";
 	 

@@ -1,5 +1,5 @@
 package action06;
-
+ 
 public class WaitNotifyExample {
 	public static void main(String[] args) {
 		MyThread obj1 = new MyThread();
