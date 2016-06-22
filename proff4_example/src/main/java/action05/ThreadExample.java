@@ -1,5 +1,5 @@
 package action05;
-
+ 
 public class ThreadExample {
 	public static void main(String[] args) {
 		MyThread obj1 = new MyThread();

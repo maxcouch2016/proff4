@@ -1,5 +1,5 @@
 package action06;
-
+ 
 public class ThreadExampleAction06 {
 	public static void main(String[] args) throws Exception {
 		MyThreadEx obj1 = new MyThreadEx("name1");

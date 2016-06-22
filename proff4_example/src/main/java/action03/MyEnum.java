@@ -1,5 +1,5 @@
 package action03;
-
+ 
 public enum MyEnum { 
 	oNE("один"), tWO("два"), fREE("три");
 	String name;

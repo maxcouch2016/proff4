@@ -1,5 +1,5 @@
 package action04;
-
+ 
 public class Calc1 extends AbstractCalc{
 
 	@Override

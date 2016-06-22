@@ -6,7 +6,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-
+ 
 public class InpStreamExmaple {
 	public static void main(String[] args) throws Exception {
 		File file1 = new File("text1.txt");
