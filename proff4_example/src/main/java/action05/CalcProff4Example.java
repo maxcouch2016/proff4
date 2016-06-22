@@ -3,7 +3,7 @@ package action05;
 import action04.AbstractCalc;
 
 public class CalcProff4Example extends AbstractCalc{
-  
+   
 	@Override
 	public void inChar(char p) {
 		if(p=='='){
