@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Tread_2 {
 	public static void main(String[] args) {
 		ArrayList<File> files = new ArrayList<>();
-		String strDir="d:\\";
+		String strDir="d://";
 		File dir = new File(strDir);
 		files.add(dir);	
 			for (int i = 0;i<files.size();i++) {
