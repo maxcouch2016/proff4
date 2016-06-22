@@ -34,7 +34,7 @@ public class Controller1 implements Initializable {
 	@FXML
 	private void handlerDigitAction(ActionEvent event) {
 		sizeTextFilt();
-		System.out.println(txtDisplay.getLength());
+		System.out.println("txtDisplay="+txtDisplay.getLength());
 		String digitObject = ((Button) event.getSource()).getText();
 		String oldText = txtDisplay.getText();
 		if (txtDisplay.getText().equals("0")) {
@@ -43,7 +43,8 @@ public class Controller1 implements Initializable {
 		}
 		
 		String newText = oldText + digitObject;
-		System.out.println(generalOperationObject);
+		System.out.println("newText ="+newText);
+		System.out.println("generalOperationObject="+generalOperationObject);
 		if (resultAll != 0) {
 		}
 		if (ferSec == false) {
@@ -130,7 +131,7 @@ public class Controller1 implements Initializable {
 			
 		
 			}
-		
+
 	@FXML
 	private void handlerEqualAction(ActionEvent event) {
 		if (String.valueOf(txtDisplay.getText()) == "Ошибка") {
@@ -184,14 +185,17 @@ public class Controller1 implements Initializable {
 
 	@FXML
 	private void handlerDecimalAction(ActionEvent event) {
+		System.out.println("handlerDecimalAction, decimalClick="+decimalClick);
 		sizeTextFilt();
 		
-		if (decimalClick == 0) {
+		
 			String decimalObject = ((Button) event.getSource()).getText();
 			String oldText = txtDisplay.getText();
+			if (decimalClick == 0) {
 			String newText = oldText + decimalObject;
 			txtDisplay.setText(newText);
-			if (generalOperationObject != null & firstDoubleDisp != 0 & secondDoubleDisp != 0) {
+			
+			if (generalOperationObject != null  & secondDoubleDisp != 0) {
 				secondDoubleDisp = 0;
 				txtDisplay2.setText(dblFormatNum(firstDoubleDisp) + generalOperationObject + newText
 						+ dblFormatNum(secondDoubleDisp));
@@ -205,10 +209,10 @@ public class Controller1 implements Initializable {
 				decimalClick = 1;
 				System.out.println("decimalClick"+decimalClick);
 			}
-	
+			decimalClick = 1;
 		}
 	}
-
+		
 	@FXML
 
 	private void handlerBasicAction(ActionEvent event) {
