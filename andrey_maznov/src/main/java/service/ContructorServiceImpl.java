@@ -5,35 +5,35 @@ import java.util.List;
 import dao.ContructorDao;
 import domain.Contructor;
  
-public class ConstructorServiceImpl implements ConstructorService {
+public class ContructorServiceImpl implements ContructorService {
 	private ContructorDao constrDao = null;
 
-	public ConstructorServiceImpl(ContructorDao constrDao) {
+	public ContructorServiceImpl(ContructorDao constrDao) {
 		this.constrDao = constrDao;
 	}
 
 	@Override
-	public void addNewConstructor(Contructor constr) {
+	public void addNewContructor(Contructor constr) {
 		constrDao.create(constr);
 	}
 
 	@Override
-	public List<Contructor> getAllConstructors() {
+	public List<Contructor> getAllContructors() {
 		return constrDao.findAll();
 	}
 
 	@Override
-	public void updateConstructor(Contructor constr) {
+	public void updateContructor(Contructor constr) {
 		constrDao.update(constr);
 	}
 
 	@Override
-	public void deleteConstructor(Contructor constr) {
+	public void deleteContructor(Contructor constr) {
 		constrDao.delete(constr);		
 	}
 
 	@Override
-	public void addNewConstructors(Contructor[] constrs) {
+	public void addNewContructors(Contructor[] constrs) {
 		for(Contructor constr:constrs){
 			constrDao.create(constr);
 		}
@@ -41,7 +41,7 @@ public class ConstructorServiceImpl implements ConstructorService {
 	}
 
 	@Override
-	public List<Contructor> getAllConstructorsByBeginString(String begin) {
+	public List<Contructor> getAllContructorsByBeginString(String begin) {
 		return constrDao.findContructorsByBeginString(begin);
 	}
 

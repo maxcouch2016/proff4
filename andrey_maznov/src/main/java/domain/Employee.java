@@ -21,14 +21,11 @@ public class Employee {
 	private String name;
 	
 	@Column(name="salary")
-	private int salary;
+	private Integer salary;
 
-	@Column(name="user_id")
-	private int user_id = 0;
-	
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", user_id=" + user_id + "]";
+		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
 	}
 	
 	public Long getId() {
@@ -47,37 +44,24 @@ public class Employee {
 		this.name = name;
 	}
 
-	public int getSalary() {
+	public Integer getSalary() {
 		return salary;
 	}
 
-	public void setSalary(int salary) {
+	public void setSalary(Integer salary) {
 		this.salary = salary;
 	}
 	
-	public int getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
-	}
-
 	public Employee() {
 	}
 
-	public Employee(String name, int salary) {
-		this(name, salary, 0);
-	}
-
 	public Employee(String name) {
-		this(name, 0, 0);
+		this(name, 0);
 	}
 	
-	public Employee(String name, int salary, int user_id) {
+	public Employee(String name, Integer salary) {
 		this.name = name;
 		this.salary = salary;
-		this.user_id = user_id;
 	}
 	
 }

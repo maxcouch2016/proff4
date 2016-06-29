@@ -9,18 +9,17 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import domain.Product;
-import util.HibernateUtil;
  
 public class ProductDaoImpl implements ProductDao {
 	private static Logger log = Logger.getLogger(ProductDaoImpl.class);
 	
-	private SessionFactory sessionFactory;
+	private SessionFactory sf;
 	public ProductDaoImpl(SessionFactory sf){
-		sessionFactory = sf;;
+		this.sf = sf;
 	}
 	@Override
 	public Long create(Product product) {
-		Session session = sessionFactory.openSession();
+		Session session = sf.openSession();
 		Long id = null;
 		try {
 			session.beginTransaction();
@@ -38,21 +37,22 @@ public class ProductDaoImpl implements ProductDao {
 
 	@Override
 	public Product read(Long id) {
-		Session session = sessionFactory.openSession();
+		Session session = sf.openSession();
 		Product product = null;
 		try {
 			product = (Product) session.get(Product.class, id);
 		} catch (HibernateException e) {
 			log.error("Transaction failed");
 		} finally {
-			session.close();
+			if (session != null)
+				session.close();
 		}
 		return product;
 	}
 
 	@Override
 	public void update(Product product) {
-		Session session = sessionFactory.openSession();
+		Session session = sf.openSession();
 		try {
 			session.beginTransaction();
 			session.update(product);
@@ -64,29 +64,47 @@ public class ProductDaoImpl implements ProductDao {
 			if (session != null)
 				session.close();
 		}
-
 	}
 
 	@Override
 	public void delete(Product product) {
-		// delete(product)
+		Session session = sf.openSession();
+		try {
+			session.beginTransaction();
+			session.delete(product);
+			session.getTransaction().commit();
+		} catch (HibernateException e) {
+			log.error("Transaction failed");
+			session.getTransaction().rollback();
+		} finally {
+			if (session != null)
+				session.close();
+		}
 	}
 
 	@Override
 	public List<Product> findAll() {
-		Session session = sessionFactory.openSession();
+		Session session = sf.openSession();
 		try {
-			// Query query = session.createQuery("from product");
 			Query query = session.createQuery("from Product");
 			return query.list();
 		} finally {
-			session.close();
+			if (session != null)
+				session.close();
 		}
 	}
 
 	@Override
 	public List<Product> findProductsByBeginString(String begin) {
-		return null;
+		Session session = sf.openSession();
+		try {
+			Query query = session.createSQLQuery("select * from product where product.name like :a").addEntity(Product.class);
+			query.setString("a", begin + "%");
+			return query.list();
+		} finally {
+			if (session != null)
+				session.close();
+		}
 	}
 
 }

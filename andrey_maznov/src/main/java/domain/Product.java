@@ -20,8 +20,9 @@ public class Product {// POJO
 	private String name;
 	
 	@Column(name="code")
-	private int barcode = 0;
+	private Integer barcode = 0;
 
+	
 	public Long getId() {
 		return id;
 	}
@@ -38,11 +39,11 @@ public class Product {// POJO
 		this.name = name;
 	}
 
-	public int getBarcode() {
+	public Integer getBarcode() {
 		return barcode;
 	}
 
-	public void setBarcode(int barcode) {
+	public void setBarcode(Integer barcode) {
 		this.barcode = barcode;
 	}
 
@@ -55,7 +56,7 @@ public class Product {// POJO
 	}
 
 
-	public Product(String name, int barcode) {
+	public Product(String name, Integer barcode) {
 		this.name = name;
 		this.barcode = barcode;
 	}

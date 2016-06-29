@@ -8,22 +8,22 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import domain.Contructor;;
+import domain.User;
  
-public class ContructorDaoImpl implements ContructorDao {
-	private static Logger log = Logger.getLogger(ContructorDaoImpl.class);
-	private SessionFactory sessionFactory;
+public class UserDaoImpl implements UserDao {
+	private static Logger log = Logger.getLogger(UserDaoImpl.class);
 	
-	public ContructorDaoImpl(SessionFactory sessionFactory){
-		this.sessionFactory = sessionFactory;
+	private SessionFactory sf;
+	public UserDaoImpl(SessionFactory sf){
+		this.sf = sf;
 	}
 	@Override
-	public Long create(Contructor contr) {
-		Session session = sessionFactory.openSession();
+	public Long create(User user) {
+		Session session = sf.openSession();
 		Long id = null;
 		try {
 			session.beginTransaction();
-			id = (Long) session.save(contr);
+			id = (Long) session.save(user);
 			session.getTransaction().commit();
 		} catch (HibernateException e) {
 			log.error("Transaction failed");
@@ -36,26 +36,26 @@ public class ContructorDaoImpl implements ContructorDao {
 	}
 
 	@Override
-	public Contructor read(Long id) {
-		Session session = sessionFactory.openSession();
-		Contructor contr = null;
+	public User read(Long id) {
+		Session session = sf.openSession();
+		User user = null;
 		try {
-			contr = (Contructor) session.get(Contructor.class, id);
+			user = (User) session.get(User.class, id);
 		} catch (HibernateException e) {
 			log.error("Transaction failed");
 		} finally {
 			if (session != null)
 				session.close();
 		}
-		return contr;
+		return user;
 	}
 
 	@Override
-	public void update(Contructor contr) {
-		Session session = sessionFactory.openSession();
+	public void update(User user) {
+		Session session = sf.openSession();
 		try {
 			session.beginTransaction();
-			session.update(contr);
+			session.update(user);
 			session.getTransaction().commit();
 		} catch (HibernateException e) {
 			log.error("Transaction failed");
@@ -67,11 +67,11 @@ public class ContructorDaoImpl implements ContructorDao {
 	}
 
 	@Override
-	public void delete(Contructor contr) {
-		Session session = sessionFactory.openSession();
+	public void delete(User user) {
+		Session session = sf.openSession();
 		try {
 			session.beginTransaction();
-			session.delete(contr);
+			session.delete(user);
 			session.getTransaction().commit();
 		} catch (HibernateException e) {
 			log.error("Transaction failed");
@@ -83,10 +83,10 @@ public class ContructorDaoImpl implements ContructorDao {
 	}
 
 	@Override
-	public List<Contructor> findAll() {
-		Session session = sessionFactory.openSession();
+	public List<User> findAll() {
+		Session session = sf.openSession();
 		try {
-			Query query = session.createQuery("from Contructor");
+			Query query = session.createQuery("from User");
 			return query.list();
 		} finally {
 			if (session != null)
@@ -95,12 +95,14 @@ public class ContructorDaoImpl implements ContructorDao {
 	}
 
 	@Override
-	public List<Contructor> findContructorsByBeginString(String begin) {
-		Session session = sessionFactory.openSession();
+	public List<User> findUsersByBeginString(String begin) {
+		Session session = sf.openSession();
 		try {
-			Query query = session.createSQLQuery("select * from contructors where contructors.name like :a").addEntity(Contructor.class);
+			List<User> list = null; 
+			Query query = session.createSQLQuery("select * from users where users.name like :a").addEntity(User.class);;
 			query.setString("a", begin + "%");
-			return query.list();
+			list = query.list();
+			return list;
 		} finally {
 			if (session != null)
 				session.close();
