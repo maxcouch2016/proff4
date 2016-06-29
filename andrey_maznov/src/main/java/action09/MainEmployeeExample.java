@@ -1,5 +1,6 @@
 package action09;
 
+import java.util.List;
 import java.util.Locale;
 
 import org.apache.log4j.Logger;
@@ -7,7 +8,10 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import dao.EmployeeDao;
+import dao.EmployeeDaoImpl;
 import domain.Employee;
+import service.EmployeeServiceImpl;
 import util.HibernateUtil;
 
  
@@ -22,9 +26,10 @@ public class MainEmployeeExample {
 		
 		Employee emp = new Employee("Vasya Pupkin", 1500);
 		try{
-			session.beginTransaction();
+			session.beginTransaction();		
 			session.save(emp);
 			session.getTransaction().commit();
+			
 		} catch (HibernateException e) {
 			log.error("Transaction failed");
 			session.getTransaction().rollback();
