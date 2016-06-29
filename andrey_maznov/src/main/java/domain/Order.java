@@ -37,7 +37,7 @@ public class Order {
 	@JoinColumn(name="contructor_id")
 	private Contructor contructor;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "order")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "order")
 	private Set<OrderPositions> order_positions;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
