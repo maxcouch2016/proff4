@@ -21,6 +21,11 @@
 		<mapping class="domain.Product" />
 		<mapping class="domain.Employee" />
 		<mapping class="domain.Contructor" />
+		<mapping class="domain.User" />
+		<mapping class="domain.Role" />
+		<mapping class="domain.Order" />
+		<mapping class="domain.OrderPositions" />
+		
 		
 	</session-factory>
 </hibernate-configuration>
