@@ -60,21 +60,21 @@ public class DBTests {
 		
 		OrderService service = new OrderServiceImpl(new OrderDaoImpl(HibernateUtilTest.getSessionFactory()));
 		
-		Order newOrder = new Order("ZAK012", 1111);
+		Order newOrder = new Order("ZAK013", 888);
 		
-		newOrder.setContructor(new Contructor("My final contructor"));
+		newOrder.setContructor(new Contructor("New test contructor"));
 		
-		User user = new User("TestFinal", "login132", "pass555word");
-		user.setEmployee(new Employee("Test", 888));
+		User user = new User("New user", "login132", "pass555word");
+		user.setEmployee(new Employee("Test empl for new user", 456));
 		
 		newOrder.setUser(user);
 		
 		Set<OrderPositions> order_positions = new HashSet<>();
 		
-		Product product = new Product("Floppy disk", 1545);
+		Product product = new Product("new prod", 48789);
 		
-		for (int i = 0; i < 1; i++) {
-			OrderPositions orderPosition = new OrderPositions(89 + i);
+		for (int i = 0; i < 3; i++) {
+			OrderPositions orderPosition = new OrderPositions(15 + i);
 			orderPosition.setProduct(product);
 			orderPosition.setOrder(newOrder);
 			order_positions.add(orderPosition);
