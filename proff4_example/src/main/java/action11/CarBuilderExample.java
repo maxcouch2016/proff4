@@ -77,6 +77,6 @@ class BuilderCar1{
 		return this;
 	}
 	public Car build() {
-		return new Car(color, marka, number);
+		return new Car();
 	}	
 }
