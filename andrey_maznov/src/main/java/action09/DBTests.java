@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import dao.ContructorDaoImpl;
 import dao.OrderDaoImpl;
 import dao.OrderPositionsDaoImpl;
+import dao.UserDaoImpl;
 import domain.Contructor;
 import domain.Employee;
 import domain.Order;
@@ -21,6 +22,8 @@ import service.OrderPositionService;
 import service.OrderPositionServiceImpl;
 import service.OrderService;
 import service.OrderServiceImpl;
+import service.UserService;
+import service.UserServiceImpl;
 import util.HibernateUtilTest;
 
 public class DBTests {
@@ -30,16 +33,14 @@ public class DBTests {
 //		contructorTest();
 //		orderConstructorTest();
 //		orderPositionsProductTest();
-//		orderPositionsOrderTest();
+		orderPositionsOrderTest();
 //		orderUserTest();
 		
 	}
-
+	
 	public static void orderUserTest() {
 		
-		Session session = HibernateUtilTest.getSession();
-
-		OrderService service = new OrderServiceImpl(new OrderDaoImpl(session));
+		OrderService service = new OrderServiceImpl(new OrderDaoImpl(HibernateUtilTest.getSessionFactory()));
 		
 		List<Order> list = service.getAllOrders();
 		
@@ -47,27 +48,33 @@ public class DBTests {
 			System.out.println(order.getOrderPositions());
 		}
 		
+		try {
+			HibernateUtilTest.getSessionFactory().close();
+		} catch(Exception e){
+			
+		}
+		
 	}
 	
 	public static void orderPositionsOrderTest() {
 		
-		Session session = HibernateUtilTest.getSession();
+		OrderService service = new OrderServiceImpl(new OrderDaoImpl(HibernateUtilTest.getSessionFactory()));
 		
-		OrderService service = new OrderServiceImpl(new OrderDaoImpl(session));
+		Order newOrder = new Order("ZAK012", 1111);
 		
-		Order newOrder = new Order("ZAK011", 1000);
+		newOrder.setContructor(new Contructor("My final contructor"));
 		
-		User user = new User("Test", "login", "password");
-		user.setEmployee(new Employee("Test", 123));
+		User user = new User("TestFinal", "login132", "pass555word");
+		user.setEmployee(new Employee("Test", 888));
 		
 		newOrder.setUser(user);
 		
 		Set<OrderPositions> order_positions = new HashSet<>();
 		
-		Product product = new Product("Молоко", 7848);
+		Product product = new Product("Floppy disk", 1545);
 		
 		for (int i = 0; i < 1; i++) {
-			OrderPositions orderPosition = new OrderPositions(12 + i);
+			OrderPositions orderPosition = new OrderPositions(89 + i);
 			orderPosition.setProduct(product);
 			orderPosition.setOrder(newOrder);
 			order_positions.add(orderPosition);
@@ -88,9 +95,7 @@ public class DBTests {
 //			System.out.println("Can't get positions with lazy fetch after session close!");
 //		}
 //		
-//		session = HibernateUtilTest.getSession();
-//		
-//		OrderPositionService positionsService = new OrderPositionServiceImpl(new OrderPositionsDaoImpl(session));
+//		OrderPositionService positionsService = new OrderPositionServiceImpl(new OrderPositionsDaoImpl(HibernateUtilTest.getSessionFactory()));
 //		
 //		List<OrderPositions> positionsList = positionsService.getAllOrderPositions();
 //		
@@ -99,7 +104,6 @@ public class DBTests {
 //		}
 		
 		try {
-			session.close();
 			HibernateUtilTest.getSessionFactory().close();
 		} catch(Exception e){
 			
@@ -109,9 +113,7 @@ public class DBTests {
 	
 	public static void orderPositionsProductTest() {
 		
-		Session session = HibernateUtilTest.getSession();
-		
-		OrderPositionService service = new OrderPositionServiceImpl(new OrderPositionsDaoImpl(session));
+		OrderPositionService service = new OrderPositionServiceImpl(new OrderPositionsDaoImpl(HibernateUtilTest.getSessionFactory()));
 		
 		List<OrderPositions> list = service.getAllOrderPositions();
 		
@@ -122,7 +124,6 @@ public class DBTests {
 		service.addNewOrderPosition(position);
 		
 		try {
-			session.close();
 			HibernateUtilTest.getSessionFactory().close();
 		} catch(Exception e){
 			
@@ -132,9 +133,7 @@ public class DBTests {
 	
 	public static void orderConstructorTest() {
 		
-		Session session = HibernateUtilTest.getSession();
-		
-		OrderService orderService = new OrderServiceImpl(new OrderDaoImpl(session));
+		OrderService orderService = new OrderServiceImpl(new OrderDaoImpl(HibernateUtilTest.getSessionFactory()));
 		
 		List<Order> list = orderService.getAllOrders();
 		
@@ -151,7 +150,6 @@ public class DBTests {
 		orderService.addNewOrder(newOrder);
 		
 		try {
-			session.close();
 			HibernateUtilTest.getSessionFactory().close();
 		} catch(Exception e){
 			
@@ -161,9 +159,7 @@ public class DBTests {
 	
 	public static void contructorTest() {
 	
-		Session session = HibernateUtilTest.getSession();
-		
-		ContructorService contrService = new ContructorServiceImpl(new ContructorDaoImpl(session));
+		ContructorService contrService = new ContructorServiceImpl(new ContructorDaoImpl(HibernateUtilTest.getSessionFactory()));
 		
 		List<Contructor> list = contrService.getAllContructors();
 		
@@ -186,7 +182,6 @@ public class DBTests {
 		contrService.deleteContructor(deleteContructor);
 		
 		try {
-			session.close();
 			HibernateUtilTest.getSessionFactory().close();
 		} catch(Exception e){
 			
