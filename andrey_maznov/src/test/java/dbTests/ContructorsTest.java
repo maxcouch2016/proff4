@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.junit.After;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import dao.ContructorDaoImpl;
@@ -18,9 +19,7 @@ public class ContructorsTest {
 
 	private static int countOfComleteTests;
 	
-	private Session session = HibernateUtilTest.getSession();
-	
-	private ContructorService service = new ContructorServiceImpl(new ContructorDaoImpl(session));
+	private ContructorService service = new ContructorServiceImpl(new ContructorDaoImpl(HibernateUtilTest.getSessionFactory()));
 		
 	@Test
 	public void addTest() {
@@ -46,6 +45,7 @@ public class ContructorsTest {
 		
 	}
 	
+//	@Ignore
 	@Test
 	public void updateTest() {
 				
@@ -80,6 +80,7 @@ public class ContructorsTest {
 		
 	}
 	
+//	@Ignore
 	@Test
 	public void deleteTest() {
 		
@@ -104,6 +105,7 @@ public class ContructorsTest {
 		
 	}
 
+//	@Ignore
 	@Test
 	public void addSeveralTest() {
 				
@@ -140,7 +142,6 @@ public class ContructorsTest {
 		if (countOfComleteTests == 4) {
 			
 			try {
-				if (session != null) session.close();
 				HibernateUtilTest.getSessionFactory().close();
 			}
 			catch (Exception e) {
