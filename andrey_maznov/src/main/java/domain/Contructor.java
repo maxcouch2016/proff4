@@ -24,7 +24,7 @@ public class Contructor {
 	public String toString() {
 		return "Contructor [id=" + id + ", name=" + name + "]";
 	}
-	
+		
 	public Long getId() {
 		return id;
 	}
