@@ -2,6 +2,7 @@ package myCalc;
 
 import java.net.URL;
 import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
@@ -59,15 +60,16 @@ public class Controller1 implements Initializable {
 			}
 
 			if (ferSec == false) {
-				firstDoubleCalc = +Double.valueOf(removeDecimalTrailingZeroes(newText));
+				firstDoubleCalc = +Double.valueOf(newText);
+				firstDoubleDisp=firstDoubleCalc;
 				System.out.println("generalOperationObject =" + generalOperationObject);
 				System.out.println("firstDoubleCalc =" + firstDoubleCalc);
 				System.out.println("secondDoubleCalc =" + secondDoubleCalc);
 			} else if (ferSec == true) {
-				secondDoubleCalc = +Double.parseDouble(removeDecimalTrailingZeroes(newText));
+				secondDoubleCalc = +Double.parseDouble(newText);
 				System.out.println("firstDoubleCalc =" + firstDoubleCalc);
 				System.out.println("secondDoubleCalc =" + secondDoubleCalc);
-
+				secondDoubleDisp=secondDoubleCalc;
 			}
 
 			txtDisplay.setText(newText);
@@ -82,7 +84,7 @@ public class Controller1 implements Initializable {
 	private void handlerGeneralAction(ActionEvent event) {
 		System.out.println("медот: handlerGeneralAction");
 		Annimation(event);
-		
+
 		sizeTextFilt();
 		generalOperationObject = ((Button) event.getSource()).getText();
 		System.out.println(generalOperationObject);
@@ -201,6 +203,7 @@ public class Controller1 implements Initializable {
 		}
 		System.out.println(generalOperationObject);
 		String format = dblFormatNum(result);
+
 		txtDisplay.setText(format);
 		System.out.println("format =" + format);
 		txtDisplay2.setText("(" + dblFormatNum(firstDoubleCalc) + ")" + generalOperationObject + "("
@@ -233,6 +236,7 @@ public class Controller1 implements Initializable {
 			if (firstDoubleCalc < 0) {
 				oldText = String.valueOf(firstDoubleDisp).replaceAll(".0", "");
 			}
+
 			oldText = oldText.toString().replaceAll(" ", "");
 			System.out.println("oldText= " + oldText);
 			if (decimalClick == 0 & Double.parseDouble(txtDisplay.getText()) % 1 == 0) {
@@ -244,7 +248,8 @@ public class Controller1 implements Initializable {
 				decimalClick = 1;
 
 				if (generalOperationObject != null & secondDoubleDisp != 0 & firstDoubleCalc % 1 == 0) {
-					if(resultAll%1!=0){}
+					if (resultAll % 1 != 0) {
+					}
 					secondDoubleDisp = 0;
 					txtDisplay2.setText(dblFormatNum(firstDoubleDisp) + generalOperationObject + newText
 							+ dblFormatNum(secondDoubleDisp));
@@ -258,7 +263,7 @@ public class Controller1 implements Initializable {
 						txtDisplay2.setText(dblFormatNum(firstDoubleDisp) + newText + dblFormatNum(secondDoubleDisp));
 					}
 					System.out.println("decimalClick" + decimalClick);
-					secondDoubleCalc = 0;
+					// secondDoubleCalc = 0;
 					if (secondDoubleDisp % 1 == 0)
 						decimalClick = 1;
 
@@ -380,19 +385,17 @@ public class Controller1 implements Initializable {
 		System.out.println("i=" + i);
 	}
 
-	private static String removeDecimalTrailingZeroes(String s) {
-		return s.indexOf(",") < 0 ? s : s.replaceAll(",", ".");
-	}
 
-	private String dblFormatNum(double numA) {
+	private String dblFormatNum(double numB) {
+	//	String numA = "";
 		try {
-			Double.parseDouble((NumberFormat.getInstance().format(numA)));
-			return (NumberFormat.getInstance().format(numA).replaceAll(",", "."));
+			String numA=String.valueOf(numB).replaceAll(",", ".");
+			Double.parseDouble((NumberFormat.getInstance(Locale.ROOT).format(numA)));
+
+			return (NumberFormat.getInstance(Locale.ROOT).format(numA));
 		} catch (Exception e) {
-			if (String.valueOf(numA).endsWith(".0")) {
-				String.valueOf(numA).replaceAll(".0", "");
-			}
-			return String.valueOf(numA).replaceAll(",", ".");
+
+			return String.valueOf(numB);
 		}
 
 	}
