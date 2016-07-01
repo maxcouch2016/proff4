@@ -82,7 +82,7 @@ public class Controller1 implements Initializable {
 	private void handlerGeneralAction(ActionEvent event) {
 		System.out.println("медот: handlerGeneralAction");
 		Annimation(event);
-		
+
 		sizeTextFilt();
 		generalOperationObject = ((Button) event.getSource()).getText();
 		System.out.println(generalOperationObject);
@@ -244,7 +244,8 @@ public class Controller1 implements Initializable {
 				decimalClick = 1;
 
 				if (generalOperationObject != null & secondDoubleDisp != 0 & firstDoubleCalc % 1 == 0) {
-					if(resultAll%1!=0){}
+					if (resultAll % 1 != 0) {
+					}
 					secondDoubleDisp = 0;
 					txtDisplay2.setText(dblFormatNum(firstDoubleDisp) + generalOperationObject + newText
 							+ dblFormatNum(secondDoubleDisp));
