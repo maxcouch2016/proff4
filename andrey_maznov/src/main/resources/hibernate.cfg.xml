@@ -9,7 +9,7 @@
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="connection.url">jdbc:mysql://localhost/proff4</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">gorilaglass12345</property>
+		<property name="connection.password">root</property>
 
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="show_sql">true</property>
@@ -19,8 +19,13 @@
 		<property name="hbm2ddl.auto">update</property>
 
 		<mapping class="domain.Product" />
-		<mapping class="domain.Employees" />
+		<mapping class="domain.Employee" />
 		<mapping class="domain.Contructor" />
+		<mapping class="domain.User" />
+		<mapping class="domain.Role" />
+		<mapping class="domain.Order" />
+		<mapping class="domain.OrderPositions" />
+		
 		
 	</session-factory>
 </hibernate-configuration>
