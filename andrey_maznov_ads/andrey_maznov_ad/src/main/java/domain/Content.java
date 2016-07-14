@@ -98,9 +98,12 @@ public class Content {
        SimpleDateFormat fmt = new SimpleDateFormat("dd-MMM-yyyy");
        fmt.setCalendar(date);
        
+       sb.append("<div class=\"messageBlock\">");
        sb.append("<p class=\"messageDate\" >"+fmt.format(date.getTime())+"</p>");
        sb.append("<p class=\"messageCatalog\">"+catalog+"</p>");
        sb.append("<div class=\"messageText\">"+text+"</div>");
+       sb.append("</div>");
+       
        return sb.toString();
 	}
 	
