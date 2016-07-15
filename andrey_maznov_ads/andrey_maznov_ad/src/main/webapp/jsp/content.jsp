@@ -8,24 +8,51 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Document</title>
+<title>Ads</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<script type="text/javascript" src="js/my.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+
+	function sendData(){
+		$.ajax({
+        	dataType: 'json',
+    		type: "POST",
+    		data: "catalogNewMessage=" + $("#adType option:selected").val() + "&textNewMessage=" + $("#content").val(),
+    		url:'/andrey_maznov_ad/content',
+        	success: function(data){
+            	if (data.adverToAdd != ''){
+            		$("#messages").append(data.adverToAdd);
+            		$("#content").val("");
+            	}
+        	},
+        	error: function() {
+            	alert("Some error occured!");
+        	}
+    	});
+	}
+	
+	$(document).ready(function() {
+		$("#buttonAddAdv").click(function(){
+			sendData();
+		});	
+	});	
+
+</script>
+
 </head>
 <body>
+	
 	<% List<Content> contents = (List<Content>)request.getAttribute("contents"); %>
 	<div class="wrap">
-		
-		<div class="messagePage">
-			<% for(Content cont: contents){%>
-			<div class="messageBlock">
-				<% out.println(cont.toPage());%>
-			</div>
-			<%}%>
+
+		<div class="messagePage" id="messages">
+			<% for(Content cont: contents){
+				out.println(cont.toPage());
+			}%>
 		</div>
 		<% String text = (String) request.getAttribute("formText");
 		if (text != null) out.println(text); %>
-		
+
 	</div>
 </body>
 </html>

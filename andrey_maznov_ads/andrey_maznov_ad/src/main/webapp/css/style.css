@@ -63,21 +63,13 @@ body {
 }
 
 .messageBlock p{
-    display: inline-block;
+    display: block;
 }
-
-
 
 li {
     margin-bottom: 5px;
     margin-left: -20px;
 }
-
-
-
-
-
-
 
 textarea {
     height: 150px;

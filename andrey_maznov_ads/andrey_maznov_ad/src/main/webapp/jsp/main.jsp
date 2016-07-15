@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Document</title>
+<title>Advertisements</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script type="text/javascript" src="js/my.js"></script>
 </head>
@@ -19,9 +19,10 @@
 			<div class="menu">
 				<h4>Дополнительное меню</h4>
 				<ul>
-				    <li><a href="/andrey_maznov_ad/content?contenttype=1">Авто</a></li>
+				    <li><a href="/andrey_maznov_ad/content">Все</a></li>
+                    <li><a href="/andrey_maznov_ad/content?contenttype=1">Авто</a></li>
 					<li><a href="/andrey_maznov_ad/content?contenttype=2">Недвижимость</a></li>
-                    <li><a href="/andrey_maznov_ad/content?contenttype=3">Работа</a></li>			
+                    <li><a href="/andrey_maznov_ad/content?contenttype=3">Работа</a></li>		
 				</ul>
 			</div>
 			<div class="mainContent">
