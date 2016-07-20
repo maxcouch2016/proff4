@@ -36,7 +36,7 @@
                <select name="cityChooseFilter_CS" id="citiesFilter_CS">
                    <option value="Все города">Все города</option>
                </select>
-               <select name="schoolChooseFilter_CS" id="schoolsFilter_CS">
+               <select name="schoolChooseFilter_CS" id="schoolsFilter_CS" disabled="disabled">
                    <option value="Все школы">Все школы</option>
                </select>
            </div>
@@ -60,21 +60,18 @@
             </div>
             <div>
                 <select name="cityFilter_T" id="citiesFilter_T">
-                    <option value="0">Все города</option>
+                    <option value="Все города">Все города</option>
                 </select>
-                <select name="schoolFilter_T" id="schoolsFilter_T">
-                    <option value="0">Все школы</option>
+                <select name="schoolFilter_T" id="schoolsFilter_T" disabled="disabled">
+                    <option value="Все школы">Все школы</option>
                 </select>
-                <select name="teacherFilter_T" id="teachersFilter_T">
-                    <option value="0">Все учителя</option>
+                <select name="teacherFilter_T" id="teachersFilter_T" disabled="disabled">
+                    <option value="Все учителя">Все учителя</option>
                 </select>
             </div>
             <div>
                <table border=1 px id="table_T">
                <tr><th>Город</th><th>Школа</th><th>Учитель</th></tr>
-               <tr><td>City 1</td><td>School 1</td><td>Teacher 1</td></tr>
-               <tr><td>City 2</td><td>School 2</td><td>Teacher 2</td></tr>
-               <tr><td>City 3</td><td>School 3</td><td>Teacher 3</td></tr>
                </table>
             </div>
        </div>
@@ -99,16 +96,16 @@
            </div>
            <div>
                <select name="cityFilter_D" id="citiesFilter_D">
-                    <option value="0">Все города</option>
+                    <option value="Все города">Все города</option>
                 </select>
                 <select name="schoolFilter_D" id="schoolsFilter_D">
-                    <option value="0">Все школы</option>
+                    <option value="Все школы">Все школы</option>
                 </select>
                 <select name="teacherFilter_D" id="teachersFilter_D">
-                    <option value="0">Все учителя</option>
+                    <option value="Все учителя">Все учителя</option>
                 </select>
                 <select name="disciplineFilter_D" id="disciplinesFilter_D">
-                    <option value="0">Все дисциплины</option>
+                    <option value="Все дисциплины">Все дисциплины</option>
                 </select>
            </div>
            <div>

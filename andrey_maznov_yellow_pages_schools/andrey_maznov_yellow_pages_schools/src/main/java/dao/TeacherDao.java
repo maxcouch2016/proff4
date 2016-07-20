@@ -8,6 +8,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import domain.City;
+import domain.School;
 import domain.Teacher;
 
 public class TeacherDao {
@@ -103,16 +105,29 @@ public class TeacherDao {
 		}
 	}
 	
-//	public Teacher findCatalogByName(String name) {
-//		Session session = sessionFactory.openSession();
-//		try {
-//			Query query = session.createSQLQuery("select * from catalog where catalog.name = :a limit 1").addEntity(Catalog.class);
-//			query.setString("a", name);
-//			return query.list().size() > 0 ? (Catalog) query.list().get(0) : null;
-//		} finally {
-//			if (session != null)
-//				session.close();
-//		}
-//	}
+	public List<String> findTeacherBySchool(School school) {
+		Session session = sessionFactory.openSession();
+		try {
+			Query query = session.createSQLQuery("select teacher.name from teacher where teacher.school_id = :a");
+			query.setLong("a", school.getId());
+			return query.list();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+	}
+
+	public Teacher findTeacherByNameInSchool(String teacher, School school) {
+		Session session = sessionFactory.openSession();
+		try {
+			Query query = session.createSQLQuery("select * from teacher where teacher.name = :a and teacher.school_id = :b limit 1").addEntity(Teacher.class);
+			query.setString("a", teacher);
+			query.setLong("b", school.getId());
+			return query.list().size() > 0 ? (Teacher) query.list().get(0) : null;
+		} finally {
+			if (session != null)
+				session.close();
+		}
+	}
 
 }

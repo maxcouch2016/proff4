@@ -3,6 +3,8 @@ package service;
 import java.util.List;
 
 import dao.TeacherDao;
+import domain.City;
+import domain.School;
 import domain.Teacher;
 
 public class TeacherService {
@@ -40,8 +42,12 @@ public class TeacherService {
 		return teacherDao.findAllTeachersNames();
 	}
 	
-//	public Teacher getTeacherByName(String name) {
-//		return teacherDao.findTeacherByName(name);
-//	}
+	public List<String> getTeachersBySchool(School school) {
+		return teacherDao.findTeacherBySchool(school);
+	}
+	
+	public Teacher getTeacherByNameInSchool(String teacher, School school) {
+		return teacherDao.findTeacherByNameInSchool(teacher, school);
+	}
 	
 }
