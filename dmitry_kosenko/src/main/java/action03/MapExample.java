@@ -15,23 +15,23 @@ public class MapExample {
 		map.put(20, "Product 2");
 		map.put(30, "Product 3");
 		map.put(15, "Product 1.5");
-		
+
 		Set<Entry<Integer, String>> set = map.entrySet();
-		for(Entry<Integer, String> entry:set){
-			System.out.print(entry.getKey()+" ");
-			System.out.println(entry.getValue());			
+		for (Entry<Integer, String> entry : set) {
+			System.out.print(entry.getKey() + " ");
+			System.out.println(entry.getValue());
 		}
-		
+
 		Collection<String> values = map.values();
 		Set<Integer> keys = map.keySet();
 		//
-//		Set<String> set1 = new TreeSet<>(
-//				//(a,b)->{return b.compareTo(a);});
-//		set1.add("pic");
-//		set1.add("rtf");
-//		set1.add("aaa");
-//		set1.add("doc");
-//		System.out.println(set1);
-		
+		// Set<String> set1 = new TreeSet<>(
+		// //(a,b)->{return b.compareTo(a);});
+		// set1.add("pic");
+		// set1.add("rtf");
+		// set1.add("aaa");
+		// set1.add("doc");
+		// System.out.println(set1);
+
 	}
 }

@@ -21,57 +21,56 @@ public class ReflectionApiTest {
 		System.out.println(getParents(new ArrayList<>()));
 		System.out.println(getInterfaces(new ArrayList<>()));
 	}
-	
-	
+
 	// Task 1
 	public static ArrayList<Method> getAllObjectMethods(Object o) {
-		
-		ArrayList<Method> list = new ArrayList<>(); 
-		
+
+		ArrayList<Method> list = new ArrayList<>();
+
 		Method[] methods = o.getClass().getDeclaredMethods();
-		
+
 		for (int i = 0; i < methods.length; i++) {
 			list.add(methods[i]);
 		}
-		
+
 		return list;
-		
+
 	}
-	
-	//Task 2
+
+	// Task 2
 	public static ArrayList<Class<?>> getParents(Object obj) {
-		
-		ArrayList<Class<?>> list = new ArrayList<>(); 
-		
+
+		ArrayList<Class<?>> list = new ArrayList<>();
+
 		list.add(obj.getClass());
-		
+
 		Class<?> cls = obj.getClass().getSuperclass();
-		
+
 		while (cls != null) {
 			list.add(cls);
 			cls = cls.getSuperclass();
 		}
-		
+
 		return list;
-		
+
 	}
-	
+
 	// Task 3
 	public static HashSet<Class<?>> getInterfaces(Object obj) {
 
-		HashSet<Class<?>> resultSet = new HashSet<>(); 
-		
+		HashSet<Class<?>> resultSet = new HashSet<>();
+
 		ArrayList<Class<?>> classes = getParents(obj);
-		
+
 		for (Class<?> cl : classes) {
 			Class<?> inf[] = cl.getInterfaces();
 			for (int i = 0; i < inf.length; i++) {
 				resultSet.add(inf[i]);
 			}
 		}
-		
+
 		return resultSet;
 
 	}
-	
+
 }

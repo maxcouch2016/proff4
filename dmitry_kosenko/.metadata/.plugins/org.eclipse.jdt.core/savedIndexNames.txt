@@ -1,0 +1,6 @@
+INDEX VERSION 1.129+C:\Java\localrepository\proff4\dmitry_kosenko\.metadata\.plugins\org.eclipse.jdt.core
+1759747418.index
+1915066156.index
+2583808074.index
+2441938283.index
+134919360.index
