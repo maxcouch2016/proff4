@@ -7,12 +7,12 @@ public class ThreadExampleAction06 {
 
 		obj1.start();
 		obj2.start();
-		//obj1.stop();
-		//obj1.interrupt();
-		//obj2.setPriority(Thread.NORM_PRIORITY+2);
-		//obj1.isDaemon();
+		// obj1.stop();
+		// obj1.interrupt();
+		// obj2.setPriority(Thread.NORM_PRIORITY+2);
+		// obj1.isDaemon();
 		obj1.join();
-		
+
 		System.out.println("\t\tMain end");
 	}
 }
@@ -33,6 +33,6 @@ class MyThreadEx extends Thread {
 			}
 			System.out.println(name + "_" + i);
 		}
-		System.out.println(name+"_end");
+		System.out.println(name + "_end");
 	}
 }
