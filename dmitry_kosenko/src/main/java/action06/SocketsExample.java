@@ -1,6 +1,5 @@
 package action06;
 
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -13,7 +12,7 @@ import java.net.UnknownHostException;
 import action07.Client;
 import action07.Server;
 import action07.ServerForClients;
- 
+
 public class SocketsExample {
 	public static void main(String[] args) {
 		int port = 3235;
@@ -70,13 +69,13 @@ class Client {
 			InputStream is = socket.getInputStream();
 			DataInputStream dis = new DataInputStream(is);
 
-			//OutputStream os = socket.getOutputStream();
-			//DataOutputStream dos = new DataOutputStream(os);
+			// OutputStream os = socket.getOutputStream();
+			// DataOutputStream dos = new DataOutputStream(os);
 
-			while(true){
+			while (true) {
 				String str = dis.readUTF();
-			
-			System.out.println("Client receive from srever:" + str);
+
+				System.out.println("Client receive from srever:" + str);
 			}
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
@@ -100,13 +99,13 @@ class ServerForClients extends Thread {
 	public void run() {
 
 		try {
-			 InputStream is = socket.getInputStream();
-			 DataInputStream dis = new DataInputStream(is);
+			InputStream is = socket.getInputStream();
+			DataInputStream dis = new DataInputStream(is);
 
-			//OutputStream os = socket.getOutputStream();
-			//DataOutputStream dos = new DataOutputStream(os);
+			// OutputStream os = socket.getOutputStream();
+			// DataOutputStream dos = new DataOutputStream(os);
 			while (true) {
-				System.out.println("server: "+dis.readUTF());
+				System.out.println("server: " + dis.readUTF());
 			}
 
 		} catch (Exception e) {

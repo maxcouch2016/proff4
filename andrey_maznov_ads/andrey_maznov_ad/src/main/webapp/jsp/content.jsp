@@ -18,7 +18,7 @@
         	dataType: 'json',
     		type: "POST",
     		data: "catalogNewMessage=" + $("#adType option:selected").val() + "&textNewMessage=" + $("#content").val(),
-    		url:'/andrey_maznov_ad/content',
+    		url:'/firstApp/content',
         	success: function(data){
             	if (data.adverToAdd != ''){
             		$("#messages").append(data.adverToAdd);

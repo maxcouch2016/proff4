@@ -5,13 +5,12 @@ public class RunnablExample {
 		M obj1 = new M();
 		Thread obj = new Thread(obj1);
 		obj.start();
-		
-				
+
 	}
 }
 
-class M implements Runnable{
-	public void run(){
-		
+class M implements Runnable {
+	public void run() {
+
 	}
 }

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JDBCExample {
- 
+
 	private static String nameDriver = "com.mysql.jdbc.Driver";
 	private static String url = "jdbc:mysql://localhost:3306/proff4";
 	private static String login = "root";
@@ -35,7 +35,7 @@ public class JDBCExample {
 				if (rs.getString(5) == null)
 					System.out.print("empty,");
 				else
-					System.out.print(rs.getInt(5) + ", ");				
+					System.out.print(rs.getInt(5) + ", ");
 				System.out.println();
 			}
 		} catch (SQLException e) {

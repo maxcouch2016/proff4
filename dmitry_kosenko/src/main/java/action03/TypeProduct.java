@@ -1,5 +1,5 @@
 package action03;
 
-public enum TypeProduct{
+public enum TypeProduct {
 	Bread, Yogurt, Milk;
 }
