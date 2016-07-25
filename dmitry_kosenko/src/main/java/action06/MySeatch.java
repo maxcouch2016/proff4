@@ -27,9 +27,6 @@ public class MySeatch {
 			System.out.println("Нет такой директории");
 			return null;
 		}
-		
-		
-		
 
 		fillList(startDir2); // заполняем лист всеми папками внутри
 
@@ -40,7 +37,7 @@ public class MySeatch {
 			threads[i] = new MyThread();
 			threads[i].start();
 		}
-		
+
 		// каждый поток должен отработать и закрыться
 		boolean searchFinished = false;
 		while (!searchFinished) {

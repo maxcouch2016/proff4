@@ -101,3 +101,7 @@
 2016-06-22 20:26:54,500 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000232: Schema update complete
 2016-06-22 20:26:54,703 [main] ERROR action09.MainProductExample - Transaction failed
 2016-06-22 20:26:54,703 [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000030: Cleaning up connection pool [jdbc:mysql://localhost/proff4]
+2016-07-20 19:55:58,625 [main] INFO  org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@80a178: startup date [Wed Jul 20 19:55:58 EEST 2016]; root of context hierarchy
+2016-07-20 19:55:58,953 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [action17_spring2/config.xml]
+2016-07-20 19:58:30,140 [main] INFO  org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@80a178: startup date [Wed Jul 20 19:58:30 EEST 2016]; root of context hierarchy
+2016-07-20 19:58:30,265 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [action17_spring2/config.xml]
