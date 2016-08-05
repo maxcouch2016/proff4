@@ -10,12 +10,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainController {
+	@RequestMapping("/root")
+	public String rootPage(Model model) {
+		return "root";
+	}
+	
 	@RequestMapping(value = { "/", "/main" }, method = RequestMethod.GET)
 	public String mainPage(Model model) {
 		return "main";
 	}
 
-	@RequestMapping(value = "/forms", method = RequestMethod.POST)
+	@RequestMapping(value = "/forms")
 	public String listPersons(Model model) {
 		//
 		List<String> products = new ArrayList<String>();
