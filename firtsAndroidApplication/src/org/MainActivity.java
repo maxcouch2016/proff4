@@ -5,10 +5,12 @@ import com.example.androidapplication.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends Activity{
 	EditText text;
@@ -41,6 +43,11 @@ public class MainActivity extends Activity{
 		Intent intent1 = getIntent();
 		String str = intent1.getStringExtra("parametr");
 		str = intent1.getParcelableExtra("parametr");
-		*/		
+		*/
+	}
+	public void myClick1(View view){
+		Log.d("myApplication", "my infa");
+		Toast.makeText(this, "my toast", Toast.LENGTH_SHORT).show();
+		
 	}
 }
