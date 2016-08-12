@@ -15,3 +15,20 @@ function myFunction(){
 	
 
 }
+
+function ajaxFunctionPage(vCount){
+	// ajaxPageContent
+	$.ajax({
+		type: "GET",
+		data: "count="+vCount,
+		url: "ajaxPageContent",
+		dataType: "json",
+		success: function(data)	{
+			// tableUsers
+			// countPages
+			if(data.tableUsers!=''){
+				$("#myTable").html(data.tableUsers);
+			}
+		},
+	});
+}
