@@ -8,14 +8,29 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.LinearLayout;
 
 public class TestActivity extends Activity{
 	DBHelper dbHelper;
+	Button btn;
+	DatePicker d;
+	LinearLayout obj;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.test_layout);
 		dbHelper = new DBHelper(this);
 		Log.d("NameTag", "message");
+		obj = (LinearLayout) findViewById(R.id.myAddLayout);
+	}
+	public void myClickAdd(View view){
+		Button btn1 = (Button) view;
+		
+		Button btn = new Button(this);
+		btn.setText("add button");
+		obj.addView(btn);		
 	}
 
 public void onClick(){
