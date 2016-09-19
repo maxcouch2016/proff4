@@ -1,0 +1,65 @@
+
+.wrap {
+    width: 1002px;
+
+    margin: 10px auto;
+}
+
+.banner img{
+    max-height: 150px; 
+    margin-right: 20px;
+}
+
+.banner {
+    padding-left: 200px;
+}
+
+.footer {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.content form input {
+    display: block;
+    margin-bottom: 10px;
+}
+.content form input[type="text"] {
+    padding: 6px 10px;
+}
+.content {
+    display: flex;
+}
+
+.menu {
+    width: 200px;
+}
+
+.mainContent {
+    width: 700px;
+    border: 1px solid grey;
+}
+
+.content form {
+    margin-left: 10px;
+}
+
+body {
+    background: palegoldenrod;
+    font-size: 14px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;    
+}
+
+.messagePage {
+   
+}
+
+.messageBlock {
+     border: 1px solid maroon;
+    margin: 10px 50px;
+    width: 900px;
+    background: pink;
+}
+
+.messageBlock p{
+    display: inline-block;
+}
