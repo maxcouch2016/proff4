@@ -6,17 +6,17 @@ http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="idLift1" class="action18.Lift">
-		<constructor-arg value="POSCO" />
+	<bean id="idLift1" class="action17_spring1.Lift">
+		<constructor-arg value="POSCODIN" />
 		<constructor-arg value="Ivanov" />
 	</bean>
 	
-	<bean id="idLift" class="action18.Lift">
+	<bean id="idLift" class="action17_spring1.Lift">
 		<constructor-arg value="POSCO" />
 		<property name="operator" value="Vasilchishin S. A." />
 	</bean>
 
-	<bean id="idHouse" class="action18.House">
+	<bean id="idHouse" class="action17_spring1.House">
 		<constructor-arg value="13 A" />
 	</bean>
 </beans>
